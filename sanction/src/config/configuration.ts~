@@ -1,0 +1,30 @@
+export default () => ({
+  prod: {
+    api_port: 5000,
+    complyadvantage: {
+      api_key: process.env.COMPLY_ADVANTAGE_API_KEY,
+      base_url: 'https://api.us.complyadvantage.com',
+    },
+  },
+  stage: {
+    api_port: 4000,
+    complyadvantage: {
+      api_key: process.env.COMPLY_ADVANTAGE_API_KEY,
+      base_url: 'https://api.us.complyadvantage.com',
+    },
+  },
+  awsdev: {
+    api_port: 3000,
+    complyadvantage: {
+      api_key: process.env.COMPLY_ADVANTAGE_API_KEY,
+      base_url: 'https://api.us.complyadvantage.com',
+    },
+  },
+  dev: {
+    api_port: 3000,
+    complyadvantage: {
+      api_key: process.env.COMPLY_ADVANTAGE_API_KEY,
+      base_url: 'https://api.us.complyadvantage.com',
+    },
+  },
+});

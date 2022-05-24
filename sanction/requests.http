@@ -1,0 +1,1 @@
+GET http://localhost:3100/sanction/search?full_name=joe%20biden&year_of_birth=1942
