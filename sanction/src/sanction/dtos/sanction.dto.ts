@@ -25,11 +25,11 @@ export class SanctionResponse {
   @IsNumber()
   score: number;
 
-  @ApiProperty({ description: 'Lengh of the matched types' })
+  @ApiProperty({ description: 'Length of the matched sanction types' })
   @IsNumber()
   length: number;
 
-  @ApiProperty({ description: 'Comma-separated string of matched types' })
+  @ApiProperty({ description: 'Comma-separated string of matched sanction types' })
   @IsString()
   @MinLength(1)
   types: string;
