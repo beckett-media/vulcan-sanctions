@@ -10,11 +10,16 @@ export class SanctionService {
 
   constructor(private complyadvantageService: ComplyadvantageService) {}
 
-  async search(fullName: string, yearOfBirth: number) {
+  async search(fullName: string, yearOfBirth: number): Promise<string> {
     const result = await this.complyadvantageService.search(
       fullName,
       yearOfBirth,
     );
+    return JSON.stringify(result);
+  }
+
+  async raw(fullName: string, yearOfBirth: number): Promise<string> {
+    const result = await this.complyadvantageService.raw(fullName, yearOfBirth);
     return JSON.stringify(result);
   }
 }

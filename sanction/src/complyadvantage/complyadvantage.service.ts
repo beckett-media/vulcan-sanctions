@@ -13,10 +13,7 @@ export class ComplyadvantageService {
 
   constructor(private httpService: HttpService) {}
 
-  async search(
-    fullName: string,
-    yearOfBirth: number,
-  ): Promise<SanctionResponse> {
+  async raw_(fullName: string, yearOfBirth: number): Promise<any> {
     const searchTerm = fullName;
     const config = configuration()[process.env.runtime]['complyadvantage'];
     const url = `${config['base_url']}/searches`;
@@ -48,7 +45,18 @@ export class ComplyadvantageService {
       ),
     );
     this.logger.log(JSON.stringify(response));
+    return response;
+  }
 
+  async raw(fullName: string, yearOfBirth: number): Promise<any> {
+    return this.raw_(fullName, yearOfBirth);
+  }
+
+  async search(
+    fullName: string,
+    yearOfBirth: number,
+  ): Promise<SanctionResponse> {
+    const response = await this.raw_(fullName, yearOfBirth);
     var hits: any;
     try {
       hits = response['content']['data']['hits'];
